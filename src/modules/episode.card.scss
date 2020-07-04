@@ -1,0 +1,30 @@
+.episode_card {
+  background: #f7f7f7;
+  margin: 4px 0;
+  display: inline;
+  padding: 12px 12px;
+  width: 100%;
+  overflow: hidden;
+  float: left;
+
+  h4,
+  a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
+
+  }
+
+  &:hover {
+    background: #fa7474;
+    cursor: pointer;
+
+    h4,
+    a {
+      color: #fff;
+
+    }
+  }
+}

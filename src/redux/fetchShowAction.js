@@ -12,7 +12,7 @@ import {
 
 export const fetchShow = () => (dispatch) => {
   dispatch({ type: REQUEST_SHOW_PENDING });
-  fetch("http://api.tvmaze.com/shows/6771")
+  fetch("https://api.tvmaze.com/shows/6771")
     .then((response) => response.json())
     .then((data) => dispatch({ type: REQUEST_SHOW_SUCCESS, payload: data }))
     .catch((error) => dispatch({ type: REQUEST_SHOW_FAILED, payload: error }));
@@ -20,7 +20,7 @@ export const fetchShow = () => (dispatch) => {
 
 export const fetchEpisodes = () => (dispatch) => {
   dispatch({ type: REQUEST_EPISODELIST_PENDING });
-  fetch("http://api.tvmaze.com/shows/6771/episodes")
+  fetch("https://api.tvmaze.com/shows/6771/episodes")
     .then((response) => response.json())
     .then((data) =>
       dispatch({ type: REQUEST_EPISODELIST_SUCCESS, payload: data })
@@ -32,7 +32,7 @@ export const fetchEpisodes = () => (dispatch) => {
 
 export const fetchEpisode = (epId) => (dispatch) => {
   dispatch({ type: REQUEST_EPISODE_PENDING });
-  fetch(`http://api.tvmaze.com/episodes/${epId}`)
+  fetch(`https://api.tvmaze.com/episodes/${epId}`)
     .then((response) => response.json())
     .then((data) => dispatch({ type: REQUEST_EPISODE_SUCCESS, payload: data }))
     .catch((error) =>

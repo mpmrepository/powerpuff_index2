@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Route, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const EpisodeInfo = ({ episodes }) => {
   let { epId } = useParams();
@@ -9,7 +9,7 @@ const EpisodeInfo = ({ episodes }) => {
     <div className="pb16">
       {episode.image ? (
         <div className="show_description show_section pb8">
-          <img src={episode.image.original} />
+          <img alt="epiosde thumb" src={episode.image.original} />
         </div>
       ) : null}
 

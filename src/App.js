@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import "./App.scss";
 import HomeComponent from "./pages/home/home.container";
-import { Switch, Route, Link, useRouteMatch, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import EpisodeComponent from "./pages/episode/episode.component";
 import ErrorBoundary from "./ErrorBoundary";
 import EpisodesList from "./modules/episode.list";
 
-const App = (props) => {
-  const { onFetchShow, onFetchEpisodes } = props;
+const App = ({
+  onFetchShow,
+  onFetchEpisodes,
+  showInfo,
+  episodesPending,
+  episodeList,
+  showsPending,
+}) => {
   useEffect(() => {
     onFetchShow();
   }, [onFetchShow]);
@@ -16,19 +22,17 @@ const App = (props) => {
     onFetchEpisodes();
   }, [onFetchEpisodes]);
 
-  const { id, image, name } = props.showInfo;
+  const { id, image, name } = showInfo;
 
-  const summary = props.showInfo.summary
-    ? props.showInfo.summary.replace(/(<([^>]+)>)/gi, "")
+  const summary = showInfo.summary
+    ? showInfo.summary.replace(/(<([^>]+)>)/gi, "")
     : "content loading";
 
   const pageImage = image
     ? image.original
     : "https://via.placeholder.com/800x1000/ddd/000.png/?text=Image+unavailable!";
 
-  const { episodesPending, episodeList } = props;
-
-  return props.showsPending ? (
+  return showsPending ? (
     <div className="App">
       <p>loading</p>
     </div>
@@ -59,7 +63,7 @@ const App = (props) => {
                 summary={summary}
                 id={id}
                 name={name}
-                showsPending={props.showsPending}
+                showsPending={showsPending}
               />
             </Route>
           </Switch>
@@ -67,7 +71,7 @@ const App = (props) => {
             <h3>Episode list:</h3>
           </div>
           <div className="show_ep_list">
-            <EpisodesList episodes={props.episodeList} />
+            <EpisodesList episodes={episodeList} />
           </div>
         </div>
       </div>

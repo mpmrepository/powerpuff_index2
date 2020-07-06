@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render given props 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="cover_image"
+    style={
+      Object {
+        "backgroundImage": "url(undefined)",
+      }
+    }
+  />
+  <div
+    className="app_wrapper"
+  >
+    <div
+      className="app_content"
+    >
+      <nav
+        className="pb16"
+      >
+        <NavLink
+          exact={true}
+          to="/"
+        >
+          Home
+        </NavLink>
+      </nav>
+      <Switch>
+        <Route
+          path="/:epId"
+        >
+          <ErrorBoundary>
+            <EpisodeComponent />
+          </ErrorBoundary>
+        </Route>
+        <Route
+          exact={true}
+          path="/"
+        >
+          <Connect(HomeComponent)
+            id={6771}
+            name="Powerpuff Girls"
+            summary="content loading"
+          />
+        </Route>
+      </Switch>
+      <div
+        className="show_subtitle pb4"
+      >
+        <h3>
+          Episode list:
+        </h3>
+      </div>
+      <div
+        className="show_ep_list"
+      >
+        <EpisodesList />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./home.style.scss";
 
 const HomeComponent = ({ name, id, summary, episodeList, showsPending }) => {
